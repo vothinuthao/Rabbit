@@ -1,7 +1,8 @@
-﻿namespace Core.Interface
+﻿namespace Assets.Code.Interfaces
 {
-    public interface IGameState
+    public interface IStateBase
     {
-        
+        void StateUpdate();
+        void ShowIt();
     }
 }

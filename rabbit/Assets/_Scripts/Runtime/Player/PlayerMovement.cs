@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Code.Interface;
+
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -29,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         GetInput();
         HandleJump();
+        
     }
     private void FixedUpdate()
     {
