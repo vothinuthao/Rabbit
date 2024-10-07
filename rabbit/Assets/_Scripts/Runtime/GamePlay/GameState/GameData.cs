@@ -16,6 +16,8 @@ public class GameData : MonoBehaviour
     public string playGameScene1 = "Scene1";
     private float timeRemaining = 150f;
     private int sceneBeginningScore;
+    public GameObject itemCollectionMisson;
+    public Button clickToPlay;
  
     [HideInInspector]
     public int playerLives;
@@ -60,5 +62,29 @@ public class GameData : MonoBehaviour
     {
         //timerText.text = Mathf.Floor(timeRemaining).ToString();
     }
+    public void ShowUI()
+    {
+        if (itemCollectionMisson != null)
+        {
+            itemCollectionMisson.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("itemCollectionMisson is null!");
+        }
+    }
+
+    public void HideUI()
+    {
+        if (itemCollectionMisson != null)
+        {
+            itemCollectionMisson.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("itemCollectionMisson is null!");
+        }
+    }
+
 
 }

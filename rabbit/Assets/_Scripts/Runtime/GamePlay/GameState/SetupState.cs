@@ -48,13 +48,13 @@ namespace Assets.Code.States
         // ReSharper disable Unity.PerformanceAnalysis
         public void ShowIt()
         {
-            if (manager.gameDataScene0Ref != null)
+            if (manager.gameDataRef != null)
             {
-                manager.gameDataScene0Ref.ShowUI();
+                manager.gameDataRef.ShowUI();
             }
             else
             {
-                Debug.LogError("gameDataScene0Ref is null!");
+                Debug.Log("gameDataRef is null!");
             }
              
             if (GUI.Button(new Rect(10, 10, 270, 30), 
@@ -62,7 +62,7 @@ namespace Assets.Code.States
                 Input.GetKeyUp (KeyCode.Space))
             {
                 manager.SwitchState (new PlayState (manager));
-                //manager.gameDataScene0Ref.HideUI();
+                manager.gameDataRef.HideUI();
             }
         }
         

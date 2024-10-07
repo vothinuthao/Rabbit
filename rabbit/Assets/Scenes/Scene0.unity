@@ -396,11 +396,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1072852753 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7728425610754582087, guid: fd9deaaf3afbd894993bc1c003a14d55, type: 3}
-  m_PrefabInstance: {fileID: 1702819905}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1257776273
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +405,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1257776276}
-  - component: {fileID: 1257776277}
   - component: {fileID: 1257776278}
   m_Layer: 0
   m_Name: GameManager
@@ -434,22 +428,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1257776277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257776273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b27bbb3c8b8640e194af31adc942f833, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemCollectionMisson: {fileID: 1072852753}
-  cameras: []
-  clickToPlay: {fileID: 1591966190}
-  playGameScene1: Scene1
 --- !u!114 &1257776278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,7 +441,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameDataRef: {fileID: 0}
-  gameDataScene0Ref: {fileID: 0}
 --- !u!1 &1342712343
 GameObject:
   m_ObjectHideFlags: 0

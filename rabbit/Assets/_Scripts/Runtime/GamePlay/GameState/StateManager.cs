@@ -9,9 +9,6 @@ public class StateManager : MonoBehaviour
  
     [HideInInspector]
     public GameData gameDataRef;
-    
-    [HideInInspector]
-    public GameDataScene0 gameDataScene0Ref;
  
     private static StateManager _instanceRef;
  
@@ -31,7 +28,6 @@ public class StateManager : MonoBehaviour
     {
         activeState = new SetupState(this);
         gameDataRef = GetComponent<GameData>();
-        gameDataScene0Ref = GetComponent<GameDataScene0>();
     }
     void Update()
     {
