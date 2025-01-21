@@ -15,5 +15,9 @@ public class Item: ScriptableObject
         itemIcon = icon;
         quantity = qty;
     }
+    void start()
+    {
+
+    }
     
 }

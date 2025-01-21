@@ -1,52 +1,95 @@
-﻿using UnityEngine;
-using Assets.Code.States;
-using Assets.Code.Interfaces;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StateManager : MonoBehaviour
+namespace Assets._Scripts.Runtime.GamePlay.GameState
 {
-    private IStateBase activeState;
- 
-    [HideInInspector]
-    public GameData gameDataRef;
- 
-    private static StateManager _instanceRef;
- 
-    void Awake ()
+    public class StateManager : MonoBehaviour
     {
-        if(_instanceRef == null)
+        public static StateManager Instance { get; private set; }
+        public int world { get; private set; } = 1;
+        public int stage { get; private set; } = 1;
+
+        public int totalFruits { get; private set; } = 0; // Quản lý số trái cây
+        public Item[] items;
+
+        private void Awake()
         {
-            _instanceRef = this;
-            DontDestroyOnLoad(gameObject);
+            if (Instance != null)
+            {
+                DestroyImmediate(gameObject);
+            }
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
         }
-        else
+
+        private void OnDestroy()
         {
-            DestroyImmediate(gameObject);
+            if (Instance == this)
+            {
+                Instance = null;
+            }
         }
-    }
-    void Start ()
-    {
-        activeState = new SetupState(this);
-        gameDataRef = GetComponent<GameData>();
-    }
-    void Update()
-    {
-        if (activeState != null)
-            activeState.StateUpdate();
-    }
-    void OnGUI()
-    {
-        if(activeState != null)
-            activeState.ShowIt();
-    }
-    public void SwitchState(IStateBase newState)
-    {
-        activeState = newState;
-    }
- 
-    public void Restart()
-    {
-        Destroy(gameObject);
-        SceneManager.LoadScene("Scene0");
+
+        private void Start()
+        {
+            Application.targetFrameRate = 60;
+            NewGame();
+        }
+
+        public void NewGame()
+        {
+            foreach (Item item in items)
+            {
+                item.quantity = 1;
+            }
+
+            LoadLevel(1, 1);
+        }
+
+        public void GameOver()
+        {
+            NewGame();
+        }
+
+        public void LoadLevel(int world, int stage)
+        {
+            this.world = world;
+            this.stage = stage;
+
+            SceneManager.LoadScene($"{world}-{stage}");
+        }
+
+        public void NextLevel()
+        {
+            LoadLevel(world, stage + 1);
+        }
+
+        public void ResetLevel(float delay)
+        {
+            CancelInvoke(nameof(ResetLevel));
+            Invoke(nameof(ResetLevel), delay);
+        }
+
+        public void ResetLevel()
+        {
+
+
+            //if (lives > 0)
+            //{
+            //    LoadLevel(world, stage);
+            //}
+            //else
+            //{
+            //    GameOver();
+            //}
+        }
+
+
+
+
     }
 }
