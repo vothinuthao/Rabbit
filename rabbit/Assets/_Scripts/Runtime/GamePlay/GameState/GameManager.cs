@@ -1,23 +1,24 @@
-﻿namespace Runtime.GamePlay.Manager
-{
-  using UnityEngine;
-using UnityEngine.Events;
-using System;
+﻿using Runtime.GamePlay.GameState;
+using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
-{
+namespace Runtime.GamePlay.Manager
+{ 
+    using UnityEngine;
+    using UnityEngine.Events;
+    public class GameManager : MonoBehaviour
+    {
     public static GameManager Instance { get; private set; }
     
-    public event UnityAction<float> OnTimeUpdated;
+    //public event UnityAction<float> OnTimeUpdated;
     public event UnityAction<GameState> OnGameStateChanged;
     
     [Header("Level Settings")]
-    [SerializeField] private float levelTimeLimit = 180f; // 3 minutes
+    //[SerializeField] private float levelTimeLimit = 180f; // 3 minutes
     
     private float currentLevelTime;
     private GameState currentGameState;
     
-    public float CurrentTime => currentLevelTime;
+    // public float CurrentTime => currentLevelTime;
     public GameState CurrentGameState => currentGameState;
     
     private void Awake()
@@ -35,31 +36,31 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
-        StartLevel();
+        GoToMainMenu();
     }
     
     private void Update()
     {
-        if (currentGameState == GameState.Playing)
-        {
-            UpdateGameTime();
-        }
+        // if (currentGameState == GameState.Playing)
+        // {
+        //     UpdateGameTime();
+        // }
     }
     
-    private void UpdateGameTime()
-    {
-        currentLevelTime += Time.deltaTime;
-        OnTimeUpdated?.Invoke(currentLevelTime);
-        
-        if (currentLevelTime >= levelTimeLimit)
-        {
-            EndLevel(false);
-        }
-    }
+    // private void UpdateGameTime()
+    // {
+    //     currentLevelTime += Time.deltaTime;
+    //     OnTimeUpdated?.Invoke(currentLevelTime);
+    //     
+    //     if (currentLevelTime >= levelTimeLimit)
+    //     {
+    //         EndLevel(false);
+    //     }
+    // }
     
     public void StartLevel()
     {
-        currentLevelTime = 0f;
+       // currentLevelTime = 0f;
         SetGameState(GameState.Playing);
     }
     
@@ -85,6 +86,10 @@ public class GameManager : MonoBehaviour
     {
         SetGameState(success ? GameState.LevelComplete : GameState.LevelFailed);
         Time.timeScale = 0f;
+       if (!success) // Kiểm tra nếu màn chơi thất bại
+           {
+               SceneManager.LoadScene("LoseScreen");
+           }
     }
     
     private void SetGameState(GameState newState)
@@ -92,6 +97,39 @@ public class GameManager : MonoBehaviour
         currentGameState = newState;
         OnGameStateChanged?.Invoke(currentGameState);
     }
+    public void GoToMainMenu()
+    {
+        SetGameState(GameState.MainMenu);
+        Time.timeScale = 1f;
+
+        // Reset dữ liệu level
+       //LevelManager.Instance.RestartCurrentLevel();
+
+        // Reset dữ liệu inventory
+        // if (InventoryController.Instance != null)
+        // {
+        //     InventoryController.Instance.ResetData();
+        // }
+
+        SceneManager.LoadScene("MainMenu");
+    }
+    // private void OnEnable()
+    // {
+    //     GameManager.Instance.OnGameStateChanged += HandleGameStateChanged;
+    // }
+    //
+    // private void OnDisable()
+    // {
+    //     GameManager.Instance.OnGameStateChanged -= HandleGameStateChanged;
+    // }
+    //
+    // private void HandleGameStateChanged(GameState newState)
+    // {
+    //     if (newState == GameState.MainMenu)
+    //     {
+    //         SceneManager.LoadScene("MainMenu");
+    //     }
+    // }
 }
 
 public enum GameState

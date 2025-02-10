@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5984385165472640806}
   - component: {fileID: 7613023806128996857}
   - component: {fileID: 2869070819273245934}
-  - component: {fileID: 1794408518564733314}
   m_Layer: 0
   m_Name: Carrot
   m_TagString: Item
@@ -147,16 +146,3 @@ MonoBehaviour:
   fruitType: 0
   collectEffect: {fileID: 0}
   collectSound: {fileID: 0}
---- !u!114 &1794408518564733314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5403276079993813636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e03cb7206d2455bac13bee6a182eb8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 3989b9464f0e0ae4cb015c574913d802, type: 2}

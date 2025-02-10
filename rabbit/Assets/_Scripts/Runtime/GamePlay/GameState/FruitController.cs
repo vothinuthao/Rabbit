@@ -10,11 +10,7 @@ public class FruitController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Kiểm tra xem có phải là loại fruit cần thu thập trong level này không
-            if (fruitType == InventoryController.Instance.GetCurrentFruitType())
-            {
                 CollectFruit();
-            }
         }
     }
     

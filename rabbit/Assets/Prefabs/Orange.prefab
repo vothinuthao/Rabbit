@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5089964759570596038}
   - component: {fileID: 8375354654507177172}
   - component: {fileID: 6220525391450518686}
-  - component: {fileID: 7025965528380366762}
+  - component: {fileID: 1264130713316991508}
   m_Layer: 0
   m_Name: Orange
   m_TagString: Item
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.42, y: 0.41686797}
   m_EdgeRadius: 0
---- !u!114 &7025965528380366762
+--- !u!114 &1264130713316991508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4503032431289581660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e03cb7206d2455bac13bee6a182eb8a, type: 3}
+  m_Script: {fileID: 11500000, guid: e087cf23b17b4f98a1e97259a5e3b7ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 53d3f05ee8dea3449891c8973acad5b6, type: 2}
+  fruitType: 2
+  collectEffect: {fileID: 0}
+  collectSound: {fileID: 0}

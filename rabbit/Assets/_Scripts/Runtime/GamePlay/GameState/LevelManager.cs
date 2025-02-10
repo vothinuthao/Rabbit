@@ -37,9 +37,7 @@
                 Debug.LogError("No levels assigned to LevelManager!");
                 return;
             }
-
-            // Tự động load level đầu tiên
-            LoadCurrentLevel();
+            
         }
 
         public void LoadLevel(int levelIndex)
@@ -55,17 +53,42 @@
             LoadCurrentLevel();
         }
 
-        private void LoadCurrentLevel()
+        public void LoadCurrentLevel()
         {
+            // Kiểm tra chỉ số level hợp lệ
+            if (currentLevelIndex < 0 || currentLevelIndex >= levels.Count)
+            {
+                Debug.LogError($"Invalid level index: {currentLevelIndex}");
+                return;
+            }
+
             LevelData levelToLoad = levels[currentLevelIndex];
 
-            // Thiết lập các thông số cho level mới
+            // Kiểm tra tên scene hợp lệ
+            if (string.IsNullOrEmpty(levelToLoad.sceneName))
+            {
+                Debug.LogError("Scene name is empty or invalid!");
+                return;
+            }
+            Debug.Log($"Loading current level: {levelToLoad.sceneName}");
+            if (InventoryController.Instance != null)
+            {
+                InventoryController.Instance.ResetData();
+            }
+            // Khởi tạo dữ liệu cho level mới
             if (InventoryController.Instance != null)
             {
                 InventoryController.Instance.InitializeLevel(levelToLoad);
             }
+            else
+            {
+                Debug.LogError("InventoryController is not initialized!");
+            }
 
-            // Load scene tương ứng
+            // Đảm bảo thời gian chạy bình thường
+            Time.timeScale = 1f;
+
+            // Tải scene tương ứng
             SceneManager.LoadScene(levelToLoad.sceneName);
         }
 
@@ -74,12 +97,14 @@
             // Kiểm tra còn level tiếp theo không
             if (currentLevelIndex + 1 < levels.Count)
             {
+                Debug.Log($"Loading next level: {levels[currentLevelIndex + 1].sceneName}");
                 LoadLevel(currentLevelIndex + 1);
             }
             else
             {
                 // Game complete logic
                 Debug.Log("Congratulations! All levels completed!");
+                SceneManager.LoadScene("WinScreen");
                 // Có thể thêm logic để quay lại menu hoặc restart game
             }
         }
@@ -103,6 +128,7 @@
         {
             return currentLevelIndex + 1; // +1 vì index bắt đầu từ 0
         }
+        
 
 #if UNITY_EDITOR
         // Helper function để kiểm tra setup trong Editor

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4723588540847602165}
   - component: {fileID: 7502630502084572240}
   - component: {fileID: 5193949606677252416}
-  - component: {fileID: -4299484662382848267}
+  - component: {fileID: 7360154429165486537}
   m_Layer: 0
   m_Name: Strawberry
   m_TagString: Item
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.244, y: 1.358, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: ed3cc68456d98c844aa8c58e1f40dca7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 110d1cf02254840ea936278f57eb4f40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,7 +122,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.43, y: 0.43}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 0.43, y: 0.43}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.45119822, y: 0.45589757}
   m_EdgeRadius: 0
---- !u!114 &-4299484662382848267
+--- !u!114 &7360154429165486537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2271149542152262393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e03cb7206d2455bac13bee6a182eb8a, type: 3}
+  m_Script: {fileID: 11500000, guid: e087cf23b17b4f98a1e97259a5e3b7ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 4a01e6a59d12d1b4b85ca1ae98dab1b0, type: 2}
+  fruitType: 3
+  collectEffect: {fileID: 0}
+  collectSound: {fileID: 0}

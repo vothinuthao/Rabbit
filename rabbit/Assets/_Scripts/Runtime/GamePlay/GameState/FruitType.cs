@@ -5,6 +5,7 @@
             Carrot,
             Grape,
             Orange,
-            Strawberry
+            Strawberry,
+            None
         }
     }

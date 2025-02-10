@@ -1,4 +1,5 @@
 
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public bool grounded;
     private float xInput;
     private float yJump = 2f;
+    public float fallThreshold = -6f;
     public Animator animator;
     
     void Start()
@@ -26,7 +28,8 @@ public class PlayerMovement : MonoBehaviour
     {
         GetInput();
         HandleJump();
-        
+        CheckFallCondition();
+
     }
     private void FixedUpdate()
     {
@@ -82,6 +85,14 @@ public class PlayerMovement : MonoBehaviour
         if (grounded && xInput == 0 && body.velocity.y<= 0)
         {
             body.velocity *= groundDecay;
+        }
+    }
+
+    private void CheckFallCondition()
+    {
+        if (transform.position.y < fallThreshold)
+        {
+            SceneManager.LoadScene("LoseScreen");
         }
     }
    

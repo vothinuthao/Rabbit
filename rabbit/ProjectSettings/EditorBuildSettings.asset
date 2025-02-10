@@ -9,6 +9,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene0.unity
     guid: c887e36868e0b1c428cefb3967755a6b
   - enabled: 1
-    path: Assets/Scenes/1-1.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainMenu.unity
+    guid: 6d7973382339e8140b062758c57ff43c
+  - enabled: 1
+    path: Assets/Scenes/CollectCarrot.unity
+    guid: 54d259a5bb182894d891465497491d2b
+  - enabled: 1
+    path: Assets/Scenes/CollectGrape.unity
+    guid: ad89187d00963594a8e98a259ec39081
+  - enabled: 1
+    path: Assets/Scenes/CollectOrange.unity
+    guid: c7ccd2f47266f0a4790390de46927dec
+  - enabled: 1
+    path: Assets/Scenes/CollectStrawberry.unity
+    guid: b6cf1139050da5641b25e4ddbd5ecfbf
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 2c371c13dd127754891f2de90fc612c6
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: cafa4261305309540aa0ccf3860812ef
   m_configObjects: {}

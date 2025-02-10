@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3216657767195424373}
   - component: {fileID: 7653954711436142808}
   - component: {fileID: 4930370005755800323}
-  - component: {fileID: 1886177794941645594}
+  - component: {fileID: 21083719097043283}
   m_Layer: 0
   m_Name: Grape
   m_TagString: Item
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.33, y: 0.33}
   m_EdgeRadius: 0
---- !u!114 &1886177794941645594
+--- !u!114 &21083719097043283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 312699282574862996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e03cb7206d2455bac13bee6a182eb8a, type: 3}
+  m_Script: {fileID: 11500000, guid: e087cf23b17b4f98a1e97259a5e3b7ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 5d37cf0a7450ef34c8fdf0a092471fc3, type: 2}
+  fruitType: 1
+  collectEffect: {fileID: 0}
+  collectSound: {fileID: 0}
