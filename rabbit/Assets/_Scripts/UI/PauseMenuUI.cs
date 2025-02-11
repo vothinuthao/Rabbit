@@ -22,7 +22,7 @@ using UnityEngine.UI;
             }
 
             if (mainMenuButton != null)
-            {
+            { 
                 mainMenuButton.onClick.AddListener(OnMainMenuButtonClicked);
             }
         }

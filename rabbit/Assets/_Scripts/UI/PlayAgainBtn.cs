@@ -20,8 +20,7 @@ namespace Runtime.GamePlay.GameState
 
         public void PlayAgainButtonClicked()
         {
-            // GameManager.Instance.GoToMainMenu();
-            SceneManager.LoadScene("MainMenu");
+            GameManager.Instance.GoToMainMenu();
         }
         public void RetryButtonClicked()
         {

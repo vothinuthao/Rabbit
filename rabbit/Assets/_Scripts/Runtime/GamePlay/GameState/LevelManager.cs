@@ -1,4 +1,6 @@
-﻿namespace Runtime.GamePlay.GameState
+﻿using Runtime.GamePlay.Manager;
+
+namespace Runtime.GamePlay.GameState
 {
     using UnityEngine;
     using UnityEngine.SceneManagement;
@@ -104,7 +106,7 @@
             {
                 // Game complete logic
                 Debug.Log("Congratulations! All levels completed!");
-                SceneManager.LoadScene("WinScreen");
+                GameManager.Instance.EndLevel(true);
                 // Có thể thêm logic để quay lại menu hoặc restart game
             }
         }
@@ -112,6 +114,7 @@
         public void RestartCurrentLevel()
         {
             LoadCurrentLevel();
+            SoundManager.Instance.PlayBackgroundMusic();
         }
 
         public bool IsLastLevel()

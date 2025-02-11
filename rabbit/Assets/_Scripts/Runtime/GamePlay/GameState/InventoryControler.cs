@@ -41,7 +41,7 @@ public class InventoryController : MonoBehaviour
         OnFruitCollected?.Invoke(collectedAmount, requiredAmount);
     }
     
-    public void CollectFruit(FruitType fruitType)
+    public bool CollectFruit(FruitType fruitType) // gợi ý nè => chỗ này chuyên void thaành bool , return ve 1 gia tri
     {
         // Chỉ thu thập nếu đúng loại fruit cho level hiện tại
         if (fruitType == currentFruitType)
@@ -53,6 +53,8 @@ public class InventoryController : MonoBehaviour
                 Debug.Log("Level complete!");
                 //OnLevelComplete?.Invoke();
             }
+
+            return true;
         }
         else
         {
@@ -62,6 +64,8 @@ public class InventoryController : MonoBehaviour
             {
                 playerHealth.TakeDamage(); // Giảm máu khi thu thập sai trái cây
             }
+
+            return false;
         }
        
         
@@ -107,13 +111,13 @@ public class InventoryController : MonoBehaviour
     
     public FruitType GetCurrentFruitType()
     {
-        return currentFruitType;
+        return currentFruitType; // học lại đoạn này tại sao phải làm như này ?
     }
     
     public void ResetCollection()
     {
         collectedAmount = 0;
-        OnFruitCollected?.Invoke(collectedAmount, requiredAmount);
+        OnFruitCollected?.Invoke(collectedAmount, requiredAmount); // invoke của action , chú ý nha
     }
     public void ResetData()
     {
@@ -124,6 +128,6 @@ public class InventoryController : MonoBehaviour
         //Debug.Log("Inventory data has been reset.");
 
         // Thông báo trạng thái ban đầu cho listener (nếu có)
-        OnFruitCollected?.Invoke(collectedAmount, requiredAmount);
+        OnFruitCollected?.Invoke(collectedAmount, requiredAmount); // gút
     }
 }

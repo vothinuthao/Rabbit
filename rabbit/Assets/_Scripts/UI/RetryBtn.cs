@@ -23,6 +23,7 @@ namespace Runtime.GamePlay.GameState
         {
             // GameManager.Instance.GoToMainMenu();
             LevelManager.Instance.RestartCurrentLevel();
+            
         }
     }
 }

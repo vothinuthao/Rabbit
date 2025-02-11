@@ -1,4 +1,5 @@
 
+using Runtime.GamePlay.Manager;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -75,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void CheckGround()
     {
-        // ReSharper disable once Unity.PreferNonAllocApi
         grounded = Physics2D.OverlapAreaAll(groundCheck.bounds.min, groundCheck.bounds.max, groundMask).Length > 0;
         
     }
@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (transform.position.y < fallThreshold)
         {
-            SceneManager.LoadScene("LoseScreen");
+            GameManager.Instance.EndLevel(false);
         }
     }
    

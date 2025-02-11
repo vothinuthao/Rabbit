@@ -38,29 +38,8 @@ namespace Runtime.GamePlay.Manager
     {
         GoToMainMenu();
     }
-    
-    private void Update()
-    {
-        // if (currentGameState == GameState.Playing)
-        // {
-        //     UpdateGameTime();
-        // }
-    }
-    
-    // private void UpdateGameTime()
-    // {
-    //     currentLevelTime += Time.deltaTime;
-    //     OnTimeUpdated?.Invoke(currentLevelTime);
-    //     
-    //     if (currentLevelTime >= levelTimeLimit)
-    //     {
-    //         EndLevel(false);
-    //     }
-    // }
-    
     public void StartLevel()
     {
-       // currentLevelTime = 0f;
         SetGameState(GameState.Playing);
     }
     
@@ -89,7 +68,15 @@ namespace Runtime.GamePlay.Manager
        if (!success) // Kiểm tra nếu màn chơi thất bại
            {
                SceneManager.LoadScene("LoseScreen");
+               SoundManager.Instance.PlayLoseSound();
+               SoundManager.Instance.StopBackgroundMusic();
+               
            }
+       else
+       {
+           SceneManager.LoadScene("WinScreen");
+           SoundManager.Instance.PlayWinSound();
+       }
     }
     
     private void SetGameState(GameState newState)
@@ -101,6 +88,12 @@ namespace Runtime.GamePlay.Manager
     {
         SetGameState(GameState.MainMenu);
         Time.timeScale = 1f;
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.StopBackgroundMusic(); // Dừng nhạc nền cũ
+            SoundManager.Instance.PlayBackgroundMusic(); // Phát nhạc nền mới
+        }
+        
 
         // Reset dữ liệu level
        //LevelManager.Instance.RestartCurrentLevel();
